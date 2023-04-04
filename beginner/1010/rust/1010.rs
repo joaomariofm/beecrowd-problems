@@ -1,13 +1,17 @@
+use std::io;
+
 fn main() {
-    let mut total_value : i64;
+    let mut total_value = 0.0;
 
-    for number in 1..3 {
-        let mut code_input = String::new();
-        io::stdin().read_line(&mut code_input).expect("Failed to read line");
-        let code : i64 = code_input .trim().parse().unwrap();
+    for _number in 1..3 {
+        let mut input = String::new();
+        io::stdin().read_line(&mut input).expect("Failed to read line");
+        
+        let inputs : Vec<f64> = input.trim().split(" ").map(|x| x.parse().expect("Not an integer")).collect();
 
-        let mut unit_input = String::new();
-        io::stdin().read_line(&mut unit_input).expect("Failed to read line");
-        let unit : i64 = unit_input.trim().parse().unwrap();
+        total_value += inputs[1] * inputs[2];
     }
+
+    println!("VALOR A PAGAR: R$ {:.2}", total_value);
 }
+
