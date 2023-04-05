@@ -11,3 +11,4 @@ fn main() {
 
     println!("A={:.4}",a);
 }
+
